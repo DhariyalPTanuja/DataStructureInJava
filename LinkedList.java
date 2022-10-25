@@ -23,10 +23,22 @@ public class LinkedList<D> {
 
 		}
 	}
-
+//insert node
+	public void insert(Node<D> newNodeToBeInserted, int postion) {
+		int index = 0;
+		Node<D> currNode = headNode;
+		while (index < postion -2 ) {
+			currNode = currNode.getNextNode();
+			System.out.println(currNode.getData());
+			index++;
+		}
+		Node<D> nextNode = currNode.getNextNode();
+		newNodeToBeInserted.setNextNode(nextNode);
+		currNode.setNextNode(newNodeToBeInserted);
+	}
 
 // Search node
-public void searchNode(D nodeToBeSearched) {  
+public int searchNode(D nodeToBeSearched) {  
 	Node<D> tempNode = headNode;
     int index = 0;  
     boolean flag = false;  
@@ -49,7 +61,8 @@ public void searchNode(D nodeToBeSearched) {
         if(flag)  
 	         System.out.println("Element is present in the list at the position : " + index);  
 	    else  
-	         System.out.println("Element is not present in the list");  
+	         System.out.println("Element is not present in the list");
+		return index;  
 		 
     }  
    
