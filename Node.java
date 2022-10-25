@@ -2,7 +2,7 @@ package com.assginment.linkedlistDs;
 
 
 
-public class Node<D> {
+public class Node<D> implements Comparable<Node> {
 	
 	private D data;
 	
@@ -37,6 +37,12 @@ public class Node<D> {
 	public Node<D> getPreviousNode(){
 		return previousNode;
 		
+	}
+
+	@Override
+	public int compareTo(Node o) {
+		
+		return 0;
 	}
 	
 	
