@@ -1,5 +1,6 @@
 package com.assginment.linkedlistDs;
 
+
 public class LinkedList<D> {
 
 	public Node<D> headNode = null;
@@ -22,6 +23,19 @@ public class LinkedList<D> {
 			tempNode = newNode;
 
 		}
+	}
+	
+	public void insert(Node<D> newNodeToBeInserted, int postion) {
+		int index = 0;
+		Node<D> currNode = headNode;
+		while (index < postion -2 ) {
+			currNode = currNode.getNextNode();
+			System.out.println(currNode.getData());
+			index++;
+		}
+		Node<D> nextNode = currNode.getNextNode();
+		newNodeToBeInserted.setNextNode(nextNode);
+		currNode.setNextNode(newNodeToBeInserted);
 	}
 	
 }
