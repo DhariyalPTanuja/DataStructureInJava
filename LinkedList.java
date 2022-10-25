@@ -1,6 +1,5 @@
 package com.assginment.linkedlistDs;
 
-
 public class LinkedList<D> {
 
 	public Node<D> headNode = null;
@@ -24,6 +23,5 @@ public class LinkedList<D> {
 
 		}
 	}
-
-
+	
 }

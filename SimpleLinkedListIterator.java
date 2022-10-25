@@ -6,7 +6,7 @@ public void iterateSimpleLinkedList(LinkedList<D> simpleLinkedList) {
 		
 		Node<D> tempNode = simpleLinkedList.headNode;
 		 while(tempNode != null) {
-			 System.out.print(tempNode.getData() + " -> " );
+			 System.out.print( tempNode.getData() + " -> " );
 			 
 			 tempNode = tempNode.getNextNode();
 }
