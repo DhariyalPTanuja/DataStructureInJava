@@ -6,10 +6,10 @@ public class NodeLinkedListMain {
 
 	public static void main(String[] args) {
 
-		System.out.println("LinkedListUC8");
+		System.out.println("LinkedListUC9");
+		//Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3
 		
-		System.out.println("Ability to insert 40 after 30 to the Linked List sequence of 56->30->70");
-		
+			
 		Node<Integer> firstNode = new Node<>(70);
 		Node<Integer> secondNode = new Node<>(30);
 		Node<Integer> thirdNode = new Node<>(56);
@@ -24,6 +24,8 @@ public class NodeLinkedListMain {
 		SimpleLinkedListIterator<Integer> simpleLinkedListIterator = new SimpleLinkedListIterator<>();
 
 		simpleLinkedListIterator.iterateSimpleLinkedList(simpleLinkedList);
+		
+		
 		System.out.println(" ");
 		System.out.println("To insert 40 after 30 to the Linked List");
 		Scanner scanobj = new Scanner(System.in);
@@ -42,6 +44,24 @@ public class NodeLinkedListMain {
 			SimpleLinkedListIterator<Integer> simpleLinkedListIterator1 = new SimpleLinkedListIterator<>();
 
 			simpleLinkedListIterator1.iterateSimpleLinkedList(simpleLinkedList);
+		System.out.println(" ");
+		System.out.println("To delete element from the Linked List");
+	
+		// search the position of delete element in linked list
+		System.out.println("enter the delete elementt: ");
+		 int newNodeToBeDelete = scanobj.nextInt();
+		 simpleLinkedList.searchNode(newNodeToBeDelete);
+		
+			simpleLinkedList.remove(newNodeToBeDelete);
+
+			
+			SimpleLinkedListIterator<Integer> simpleLinkedListIterator2 = new SimpleLinkedListIterator<>();
+	
+			simpleLinkedListIterator2.iterateSimpleLinkedList(simpleLinkedList);
+		
+			 System.out.println("The size of the linked list is: " 
+                     + (simpleLinkedList).sizeOfLinkedList());
+			
 				
 	}
 }

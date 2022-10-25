@@ -23,11 +23,12 @@ public class LinkedList<D> {
 
 		}
 	}
+
 //insert node
 	public void insert(Node<D> newNodeToBeInserted, int postion) {
 		int index = 0;
 		Node<D> currNode = headNode;
-		while (index < postion -2 ) {
+		while (index < postion - 2) {
 			currNode = currNode.getNextNode();
 			System.out.println(currNode.getData());
 			index++;
@@ -38,32 +39,66 @@ public class LinkedList<D> {
 	}
 
 // Search node
-public int searchNode(D nodeToBeSearched) {  
-	Node<D> tempNode = headNode;
-    int index = 0;  
-    boolean flag = false;  
-    //Checks whether list is empty  
-    if(headNode == null) {  
-        System.out.println("List is empty"); 
-      
-    }  
-    else {  
-        while(tempNode != null) {  
-             //Compares node to be found with each node present in the list  
-            if(tempNode.getData() == nodeToBeSearched) {  
-                flag = true;
-                break;
-            }  
-            index++;  
-            tempNode = tempNode.getNextNode();
-        }  
-    }
-        if(flag)  
-	         System.out.println("Element is present in the list at the position : " + index);  
-	    else  
-	         System.out.println("Element is not present in the list");
-		return index;  
-		 
-    }  
-   
-}  
+	public int searchNode(D nodeToBeSearched) {
+		Node<D> tempNode = headNode;
+		int index = 0;
+		boolean flag = false;
+		// Checks whether list is empty
+		if (headNode == null) {
+			System.out.println("List is empty");
+
+		} else {
+			while (tempNode != null) {
+				// Compares node to be found with each node present in the list
+				if (tempNode.getData() == nodeToBeSearched) {
+					flag = true;
+					break;
+				}
+				index++;
+				tempNode = tempNode.getNextNode();
+			}
+		}
+		if (flag)
+			System.out.println("Element is present in the list at the position : " + index);
+		else
+			System.out.println("Element is not present in the list");
+		return index;
+
+	}
+
+// remove node
+	void remove(D nodeToBeRemoved) {
+
+		if (headNode == null && tailNode == null && tempNode == null) {
+			System.out.println("Empty list/linked list is underflow");
+		}
+		Node<D> currNode = headNode;
+		prevNode = headNode;
+
+		if (nodeToBeRemoved == currNode.getData()) {
+			headNode = currNode.getNextNode();
+			currNode.setNextNode(null);
+		}
+		while (currNode.getData() != nodeToBeRemoved) {
+			prevNode = currNode;
+			currNode = currNode.getNextNode();
+
+		}
+		prevNode.setNextNode(currNode.getNextNode());
+		currNode.setNextNode(null);
+
+	}
+
+	public int sizeOfLinkedList() {
+		tempNode = headNode;
+		    int size = 0;
+		    while (tailNode != null) {
+		        tempNode = tempNode.getNextNode();
+		        size++;
+		    }
+
+		    return size;
+		
+	}
+
+}
