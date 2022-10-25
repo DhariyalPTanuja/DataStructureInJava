@@ -39,7 +39,19 @@ public class StackUsingLinkedList<T> {
 
 	        return s.toString();
 	    }
-	   
+	    //This function returns topmost element
+	    public T peek(){
+	     return top.value;
+	    }
+	    //This function pops topmost element
+	    public T pop(){
+	     T value=null;
+	     if(!isEmpty()){
+	         top=top.next;
+	         value=top.value;
+	     }
+	     return value;  //returning popped value
+	    }
 	    //This function checks emptiness of stack
 	    public boolean isEmpty(){
 	     return (top==null)?true:false;
