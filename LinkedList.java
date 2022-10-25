@@ -24,26 +24,33 @@ public class LinkedList<D> {
 		}
 	}
 
-	void remove(D nodeToBeRemoved) {
 
-		if (headNode == null && tailNode == null && tempNode == null) {
-			System.out.println("Empty list/linked list is underflow");
-		}
-		Node<D> currNode = headNode;
-		prevNode = headNode;
-
-		if (nodeToBeRemoved == currNode.getData()) {
-			headNode = currNode.getNextNode();
-			currNode.setNextNode(null);
-		}
-		while (currNode.getData() != nodeToBeRemoved) {
-			prevNode = currNode;
-			currNode = currNode.getNextNode();
-
-		}
-		prevNode.setNextNode(currNode.getNextNode());
-		currNode.setNextNode(null);
-
-	}
-
-}
+// Search node
+public void searchNode(D nodeToBeSearched) {  
+	Node<D> tempNode = headNode;
+    int index = 0;  
+    boolean flag = false;  
+    //Checks whether list is empty  
+    if(headNode == null) {  
+        System.out.println("List is empty"); 
+      
+    }  
+    else {  
+        while(tempNode != null) {  
+             //Compares node to be found with each node present in the list  
+            if(tempNode.getData() == nodeToBeSearched) {  
+                flag = true;
+                break;
+            }  
+            index++;  
+            tempNode = tempNode.getNextNode();
+        }  
+    }
+        if(flag)  
+	         System.out.println("Element is present in the list at the position : " + index);  
+	    else  
+	         System.out.println("Element is not present in the list");  
+		 
+    }  
+   
+}  
