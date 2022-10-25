@@ -1,6 +1,5 @@
 package com.assginment.linkedlistDs;
 
-
 public class LinkedList<D> {
 
 	public Node<D> headNode = null;
@@ -24,18 +23,27 @@ public class LinkedList<D> {
 
 		}
 	}
-	
-	public void insert(Node<D> newNodeToBeInserted, int postion) {
-		int index = 0;
-		Node<D> currNode = headNode;
-		while (index < postion -2 ) {
-			currNode = currNode.getNextNode();
-			System.out.println(currNode.getData());
-			index++;
+
+	void remove(D nodeToBeRemoved) {
+
+		if (headNode == null && tailNode == null && tempNode == null) {
+			System.out.println("Empty list/linked list is underflow");
 		}
-		Node<D> nextNode = currNode.getNextNode();
-		newNodeToBeInserted.setNextNode(nextNode);
-		currNode.setNextNode(newNodeToBeInserted);
+		Node<D> currNode = headNode;
+		prevNode = headNode;
+
+		if (nodeToBeRemoved == currNode.getData()) {
+			headNode = currNode.getNextNode();
+			currNode.setNextNode(null);
+		}
+		while (currNode.getData() != nodeToBeRemoved) {
+			prevNode = currNode;
+			currNode = currNode.getNextNode();
+
+		}
+		prevNode.setNextNode(currNode.getNextNode());
+		currNode.setNextNode(null);
+
 	}
-	
+
 }
